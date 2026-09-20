@@ -54,7 +54,10 @@ def _unpack(raw: str) -> dict[str, Any]:
 def _wallet(value: Any) -> str:
     if not isinstance(value, str) or len(value) != 42 or not value.startswith("0x") or any(char not in "0123456789abcdefABCDEF" for char in value[2:]):
         _error("invalid_wallet")
-    return value
+    normalized = value.lower()
+    if normalized == "0x" + "0" * 40:
+        _error("invalid_wallet")
+    return normalized
 
 
 def _side(raw: str, label: str, units_field: str, profile_field: str) -> list[dict[str, Any]]:
@@ -79,13 +82,14 @@ def _side(raw: str, label: str, units_field: str, profile_field: str) -> list[di
         units = entry[units_field]
         profile = _words(entry[profile_field], f"{label}_profile", 12, 800)
         wallet = _wallet(entry.get("wallet"))
-        if name in names or wallet.lower() in wallets or not 1 <= units <= MAX_TOTAL_UNITS:
+        name_key = name.lower()
+        if name_key in names or wallet in wallets or not 1 <= units <= MAX_TOTAL_UNITS:
             _error(f"invalid_or_duplicate_{label}_entry")
         total += units
         if total > MAX_TOTAL_UNITS:
             _error(f"{label}_unit_limit")
-        names.append(name)
-        wallets.append(wallet.lower())
+        names.append(name_key)
+        wallets.append(wallet)
         output.append({"name": name, "units": units, "profile": profile, "wallet": wallet})
     return output
 
@@ -232,7 +236,8 @@ POLICY_END"""
             if not isinstance(leader, gl.vm.Return):
                 return False
             try:
-                return leader.calldata.get("compatible_edges") == derive()["compatible_edges"]
+                leader_record = _normalize_edges(leader.calldata, len(sources), len(sinks))
+                return leader_record["compatible_edges"] == derive()["compatible_edges"]
             except Exception:
                 return False
 
@@ -274,4 +279,6 @@ POLICY_END"""
 
     @gl.public.view  # pyright: ignore[reportUnknownMemberType]
     def unmet_units(self, dispatch_id: str) -> int:
-        return 0 if not self.exists.get(dispatch_id, False) else int(_unpack(self.dispatches[dispatch_id])["unmet_units"])
+        if not self.exists.get(dispatch_id, False):
+            _error("dispatch_missing")
+        return int(_unpack(self.dispatches[dispatch_id])["unmet_units"])

@@ -1,6 +1,7 @@
 """Shared helpers for opt-in StudioNet verification.
 
-Wallet bundles contain secrets and must remain outside this repository.
+Fresh in-memory accounts are the default. Optional wallet bundles contain
+secrets and must remain outside this repository.
 """
 
 from __future__ import annotations
@@ -25,7 +26,7 @@ STUDIONET_RPC = "https://studio.genlayer.com/api"
 def wallet_accounts(repository: str, minimum: int):
     location = os.environ.get("GENLAYER_STUDIONET_WALLET_FILE")
     if not location:
-        raise AssertionError("GENLAYER_STUDIONET_WALLET_FILE is required")
+        return [create_account() for _ in range(minimum)]
     path = Path(location).expanduser().resolve(strict=True)
     repository_root = Path(__file__).resolve().parents[1]
     if path == repository_root or repository_root in path.parents:
@@ -125,7 +126,10 @@ def emit_record(
         "setup_transaction_hashes": [item["hash"] for item in setup_receipts],
         "intelligent_transaction_hash": intelligent_receipt["hash"],
         "wallet_addresses": [str(account.address) for account in accounts],
-        "wallet_policy": "repository-specific disposable bundle outside workspace; no cross-repository reuse",
+        "wallet_policy": (
+            "external repository-specific bundle" if os.environ.get("GENLAYER_STUDIONET_WALLET_FILE")
+            else "fresh in-memory disposable accounts; private keys never persisted"
+        ),
         "source": proof,
         "verification": {
             "status": "FINALIZED",

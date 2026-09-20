@@ -1,40 +1,14 @@
-16. FlowDispatch
+TITLE
+FlowDispatch — Consensus Compatibility Max-Flow
 
-Contribution Date
-08/25/2026
+DESCRIPTION
+FlowDispatch is a reusable GenLayer intelligent contract for allocating multi-unit capacity to demand when compatibility depends on natural-language profiles. Validators independently derive a closed bipartite compatibility graph, then deterministic contract code runs a bounded augmenting-path max-flow algorithm and records allocations, total flow, and unmet demand. The reviewed version normalizes leader output before exact comparison, rejects invalid role identities, and makes missing reads fail closed. GenVM lint, strict type checking, 8 direct tests, a five-validator GLSim flow, finalized StudioNet execution, latest-final readback, and exact deployed-source verification all pass.
 
-Title
-FlowDispatch - Semantic compatibility max-flow dispatch
-
-Notes / Description
-Built FlowDispatch, a reusable GenLayer intelligent contract for semantic compatibility max-flow dispatch. Consensus builds a source-to-sink compatibility graph; deterministic augmenting paths calculate a multi-unit feasible flow rather than one-to-one matching. One deployment supports multiple independently keyed records and callers. Inputs are public, caller-supplied snapshots; the contract does not automatically fetch or authenticate sources and moves no funds. GenVM lint, strict type checking, 4 direct tests and one five-validator GLSim flow passed. StudioNet verified successful finalized intelligent execution, final-state readback and matching deployed source.
-
-Evidence 1 Type
-GitHub Repository
-
-Evidence 1 URL
-https://github.com/Leokings/flowdispatch
-
-Evidence 2 Type
-GitHub File
-
-Evidence 2 URL
+EVIDENCE
+https://explorer-studio.genlayer.com/address/0x96AdEf6EE9cC767112401eD91aae69400698C375
+https://explorer-studio.genlayer.com/tx/0x77b43764f7dff8e9c850b03c5c6fa19141b96cdc233b3647a4f9523c13f58477
+https://explorer-studio.genlayer.com/tx/0xaf455a3b1ce5a4cb39d2c76f1dbc68fdcc55890ea4646d00f325dff352fa721a
 https://github.com/Leokings/flowdispatch/blob/main/deployments/studionet.json
 
-Evidence 3 Type
-GenLayer Studio Contract
-
-Evidence 3 URL
-https://studio.genlayer.com/?import-contract=0xcfd1Eea2067e582482aa509104960566E033d610
-
-Evidence 4 Type
-GenLayer Explorer Contract
-
-Evidence 4 URL
-https://explorer-studio.genlayer.com/address/0xcfd1Eea2067e582482aa509104960566E033d610
-
-Evidence 5 Type
-Other
-
-Evidence 5 URL
-https://explorer-studio.genlayer.com/tx/0x8e75d66ddc8570adec8f272666aaadba15e6f12c4cc7aae892305463c2a012e4
+GITHUB REPOSITORY
+https://github.com/Leokings/flowdispatch

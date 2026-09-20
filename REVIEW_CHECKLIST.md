@@ -13,7 +13,7 @@
 - [x] Latest-final persisted readback
 - [x] Exact deployed-source SHA-256 verification
 - [x] Deployed schema verification
-- [x] Repository-specific external wallets
+- [x] Fresh in-memory StudioNet wallets; private keys never persisted
 - [x] No private key, mnemonic, or populated environment file
 - [x] Workspace-wide originality and internal pairwise audit
 - [x] Reusable mechanism and off-chain boundary documented

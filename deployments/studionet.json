@@ -1,20 +1,20 @@
 {
   "batch": "B",
-  "contract_address": "0xcfd1Eea2067e582482aa509104960566E033d610",
+  "contract_address": "0x96AdEf6EE9cC767112401eD91aae69400698C375",
   "contract_source": {
-    "deployed_source_sha256": "01de57c491fd6179892745e9637b490b26bbe452ebfd542bcb1d6d31d3702add",
+    "deployed_source_sha256": "d26fa4b0cf0b8db26255aa6292a690e223d8511b5055a8402b07f5e9be8bf9fb",
     "path": "contracts/flow_dispatch.py",
     "runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
     "source_exact_for_deployment": true,
-    "source_sha256": "01de57c491fd6179892745e9637b490b26bbe452ebfd542bcb1d6d31d3702add"
+    "source_sha256": "d26fa4b0cf0b8db26255aa6292a690e223d8511b5055a8402b07f5e9be8bf9fb"
   },
-  "deployment_transaction_hash": "0x6c16b553f70bdf1b830b4ca19e83d0f31d4c8ac31a7212a8fdb0d3b1d2ae80dd",
+  "deployment_transaction_hash": "0x77b43764f7dff8e9c850b03c5c6fa19141b96cdc233b3647a4f9523c13f58477",
   "explorer": {
-    "contract": "https://explorer-studio.genlayer.com/address/0xcfd1Eea2067e582482aa509104960566E033d610",
-    "deployment_transaction": "https://explorer-studio.genlayer.com/tx/0x6c16b553f70bdf1b830b4ca19e83d0f31d4c8ac31a7212a8fdb0d3b1d2ae80dd",
-    "intelligent_transaction": "https://explorer-studio.genlayer.com/tx/0x8e75d66ddc8570adec8f272666aaadba15e6f12c4cc7aae892305463c2a012e4"
+    "contract": "https://explorer-studio.genlayer.com/address/0x96AdEf6EE9cC767112401eD91aae69400698C375",
+    "deployment_transaction": "https://explorer-studio.genlayer.com/tx/0x77b43764f7dff8e9c850b03c5c6fa19141b96cdc233b3647a4f9523c13f58477",
+    "intelligent_transaction": "https://explorer-studio.genlayer.com/tx/0xaf455a3b1ce5a4cb39d2c76f1dbc68fdcc55890ea4646d00f325dff352fa721a"
   },
-  "intelligent_transaction_hash": "0x8e75d66ddc8570adec8f272666aaadba15e6f12c4cc7aae892305463c2a012e4",
+  "intelligent_transaction_hash": "0xaf455a3b1ce5a4cb39d2c76f1dbc68fdcc55890ea4646d00f325dff352fa721a",
   "network": {
     "chain_id": 61999,
     "name": "studionet",
@@ -23,16 +23,16 @@
   "repository": "flowdispatch",
   "schema": "genlayer-intelligent-contract-deployment/v2",
   "setup_transaction_hashes": [
-    "0x11735d69d1ea557c31dd3876978656ae90aba45711c3e932f61aecb2a02a51ed"
+    "0xa21aab53955e05f0b664c6302645039cc0e776b2c00fd293dc716f3b0d47f484"
   ],
   "source": {
-    "deployed_source_sha256": "01de57c491fd6179892745e9637b490b26bbe452ebfd542bcb1d6d31d3702add",
+    "deployed_source_sha256": "d26fa4b0cf0b8db26255aa6292a690e223d8511b5055a8402b07f5e9be8bf9fb",
     "schema_methods_verified": [
       "allocations",
       "compute_flow",
       "unmet_units"
     ],
-    "source_sha256": "01de57c491fd6179892745e9637b490b26bbe452ebfd542bcb1d6d31d3702add"
+    "source_sha256": "d26fa4b0cf0b8db26255aa6292a690e223d8511b5055a8402b07f5e9be8bf9fb"
   },
   "tooling": {
     "genlayer_test": "0.29.2",
@@ -64,13 +64,13 @@
     "schema_read": true,
     "status": "FINALIZED"
   },
-  "verified_at": "2026-08-25T22:03:48.749573Z",
+  "verified_at": "2026-09-20T21:36:00Z",
   "wallet_addresses": [
-    "0x94e67C298457756a30CDffB475F2ef1F564732A1",
-    "0x9BcB7042167aCD21C65864FEB77fC8B87D8fb640",
-    "0xCe67ace92Bd4204208368F5Ae65f71328946ec64",
-    "0x8fEc65af2dD5De14f091deC1CBaF77f14A2Ae74F",
-    "0xfBc98f3880b7E0f2D8905931A7a5Bc297524a496"
+    "0xedA030b3b39d6Ce24e0cF050034cDA4CE2A82fE9",
+    "0xe45604eBe9126FC431f391836FDcaeBa9341E15b",
+    "0xEeCD76dB19d5e20b3C624cA9aeeB2E3B0bcc986a",
+    "0x4ffa4F567fFE55a38C623B63a3Aa2fFdaa913700",
+    "0xc3dD75a8E954458D73A03cAf2794eCe6726af15A"
   ],
-  "wallet_policy": "repository-specific disposable bundle outside workspace; no cross-repository reuse"
+  "wallet_policy": "fresh in-memory disposable accounts; private keys never persisted"
 }

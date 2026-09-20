@@ -1,33 +1,31 @@
-Project name: FlowDispatch
+# Intelligent-contract submission
 
-Category: Intelligent Contracts
+## Title
 
-Batch: B
+FlowDispatch — Consensus Compatibility Max-Flow
 
-One-line description: Semantic compatibility max-flow dispatch.
+## Description
 
-What it does: Consensus builds a source-to-sink compatibility graph; deterministic augmenting paths calculate a multi-unit feasible flow rather than one-to-one matching.
+FlowDispatch is a reusable GenLayer intelligent contract for allocating
+multi-unit capacity to demand when compatibility depends on natural-language
+profiles. GenLayer validators independently derive a closed bipartite graph of
+compatible source and sink indices under the caller's policy. Deterministic
+contract code then runs a bounded augmenting-path max-flow algorithm, records
+the final allocations and total flow, and exposes unmet demand before the owner
+seals the result. One deployment supports many owner-keyed dispatches. The
+reviewed version fully normalizes leader output before exact validator
+comparison, rejects zero or ambiguous role identities, and makes missing reads
+fail closed. GenVM lint and strict type checking pass, all 8 direct tests pass,
+the five-validator GLSim flow passes, and the exact source was redeployed and
+exercised successfully on StudioNet on 2026-09-20.
 
-Why GenLayer: GenLayer consensus performs the bounded semantic step, then deterministic contract code executes and stores the mechanism-specific result.
+## Evidence
 
-Reusable: Yes. One deployment supports many independently keyed records and callers; the live fixture is only an example.
+- Contract: https://explorer-studio.genlayer.com/address/0x96AdEf6EE9cC767112401eD91aae69400698C375
+- Deployment: https://explorer-studio.genlayer.com/tx/0x77b43764f7dff8e9c850b03c5c6fa19141b96cdc233b3647a4f9523c13f58477
+- Intelligent write: https://explorer-studio.genlayer.com/tx/0xaf455a3b1ce5a4cb39d2c76f1dbc68fdcc55890ea4646d00f325dff352fa721a
+- Exact-source proof: https://github.com/Leokings/flowdispatch/blob/main/deployments/studionet.json
 
-Repository: https://github.com/Leokings/flowdispatch (private; reviewers require read access).
+## GitHub repository
 
-Contract source: contracts/flow_dispatch.py
-
-Source SHA-256: 01de57c491fd6179892745e9637b490b26bbe452ebfd542bcb1d6d31d3702add
-
-StudioNet contract: https://explorer-studio.genlayer.com/address/0xcfd1Eea2067e582482aa509104960566E033d610
-
-Deployment transaction: https://explorer-studio.genlayer.com/tx/0x6c16b553f70bdf1b830b4ca19e83d0f31d4c8ac31a7212a8fdb0d3b1d2ae80dd
-
-Intelligent transaction: https://explorer-studio.genlayer.com/tx/0x8e75d66ddc8570adec8f272666aaadba15e6f12c4cc7aae892305463c2a012e4
-
-Verification: GenVM lint PASS; strict typecheck PASS; 4 direct tests PASS; five-validator GLSim PASS; finalized StudioNet intelligent write and latest-final readback PASS; exact deployed-source and schema verification PASS.
-
-Originality: Compared with 161 workspace contract sources. Nearest pre-existing structural score is 0.162197; mechanism and source hash are distinct.
-
-Data boundary: Caller-supplied public data only. No external source fetching, funds, identity attestation, legal effect, or private-data guarantee.
-
-Plain-text portal fields: SUBMISSION.txt. Notes / Description is within the 1,000-character form limit.
+https://github.com/Leokings/flowdispatch
